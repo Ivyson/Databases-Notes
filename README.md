@@ -6,7 +6,7 @@ This README File is used for creating useful notes that may be utilised for Data
 3. Updating - Update Information on a database
 4. Delete - Being able to remove data from the database, remove the database itself. Remove data from the tables within the database's tables
 ## Difference Between DDL & DML
-1. ###Database Definition Language
+###Database Definition Language
    - Defining the database, creation, Alteration & Updating a database
    1. Example 1   
       ```SQL
