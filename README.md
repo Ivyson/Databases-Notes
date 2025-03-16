@@ -65,3 +65,64 @@ This README File is used for creating useful notes that may be utilised for Data
      DELETE FROM Example_Table WHERE Name = 'Samson';
      ```
        
+## Chapter 1 - 6 Activity 
+- While we have been able to create databases from the above used examples, Now, the theory from here will be extrapolating from the above learnt lessons.
+  1. Creating A database flow goes as following:
+     ```SQL
+     --Create a database with name 223146145_Msimanga_Home_Affairs
+     CREATE DATABASE 223146145_Msimanga_Home_Affairs;
+     USE 223146145_Msimanga_Home_Affairs; -- This ensures that we are using the recently created database with name 'Task1'
+     -- Citizens Table
+      CREATE TABLE Citizens (
+       CitizenID INT AUTO_INCREMENT PRIMARY KEY,
+       IDNumber VARCHAR(20) UNIQUE NOT NULL,
+       FirstName VARCHAR(50) NOT NULL,
+       LastName VARCHAR(50) NOT NULL,
+       DateOfBirth DATE,
+       Nationality VARCHAR(50)
+      );
+   
+      -- Passports Table
+      CREATE TABLE Passports (
+          PassportID INT AUTO_INCREMENT PRIMARY KEY,
+          CitizenID INT NOT NULL,
+          PassportNumber VARCHAR(20) UNIQUE NOT NULL,
+          DateOfIssue DATE,
+          DateOfExpiry DATE,
+          PlaceOfIssue VARCHAR(100),
+          FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID)
+      );
+      
+      -- Visas Table
+      CREATE TABLE Visas (
+          VisaID INT AUTO_INCREMENT PRIMARY KEY,
+          PassportID INT NOT NULL,
+          VisaType VARCHAR(50),
+          IssueDate DATE,
+          ExpiryDate DATE,
+          Purpose VARCHAR(200),
+          FOREIGN KEY (PassportID) REFERENCES Passports(PassportID)
+      );
+      
+      -- Services Table
+      CREATE TABLE Services (
+          ServiceID INT AUTO_INCREMENT PRIMARY KEY,
+          ServiceName VARCHAR(100) UNIQUE NOT NULL,
+          Description TEXT,
+          EstimatedProcessingTime VARCHAR(50),
+          RequiredDocuments TEXT
+      );
+      
+      -- Appointments Table
+      CREATE TABLE Appointments (
+          AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
+          CitizenID INT NOT NULL,
+          ServiceID INT NOT NULL,
+          AppointmentDate DATE,
+          AppointmentTime TIME,
+          Status VARCHAR(50),
+          FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID),
+          FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID)
+      );
+      
+      ```
