@@ -5,20 +5,21 @@ This README File is used for creating useful notes that may be utilised for Data
 2. Read - Querying Information from a database
 3. Updating - Update Information on a database
 4. Delete - Being able to remove data from the database, remove the database itself. Remove data from the tables within the database's tables
-    - For Safety reasons, Know the difference between DDL & DDM
-      1. Database Definition Language -- Defining the database, creation, Alteration & Updating a database
-         i. Example 1
-         ```SQL
-         CREATE DATABASE Example_Database;
-         CREATE TABLE Example_Table(
-         Index_ID INT PRIMARY,
-         Name VARCHAR(100) NOT NULL,
-         Surname VARCHAR(100) NOT NULL,
-         EMAIL VARCHAR(50) UNIQUE
-         );
-         ```
-         - The above mentioned Code is responsible for Creating a database that has a table named `Example_Table`
-         ii. Example 2
+## Difference Between DDL & DML
+1. Database Definition Language -- Defining the database, creation, Alteration & Updating a database
+   1. Example 1   
+      ```SQL
+      l
+      CREATE DATABASE Example_Database;
+      CREATE TABLE Example_Table(
+      Index_ID INT PRIMARY,
+      Name VARCHAR(100) NOT NULL,
+      Surname VARCHAR(100) NOT NULL,
+      EMAIL VARCHAR(50) UNIQUE
+      );
+      ```
+    - The above mentioned Code is responsible for Creating a database that has a table named `Example_Table`
+  2. Example 2
          ```SQL
          ALTER TABLE Example_Table
          ADD COLUMN Salary DECIMAL(6, 2);
