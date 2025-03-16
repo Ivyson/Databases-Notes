@@ -104,25 +104,25 @@ This README File is used for creating useful notes that may be utilised for Data
           FOREIGN KEY (PassportID) REFERENCES Passports(PassportID)
       );
       
-      -- Services Table
-      CREATE TABLE Services (
-          ServiceID INT AUTO_INCREMENT PRIMARY KEY,
-          ServiceName VARCHAR(100) UNIQUE NOT NULL,
-          Description TEXT,
-          EstimatedProcessingTime VARCHAR(50),
-          RequiredDocuments TEXT
-      );
+      -- Birth Certificate Table
+      CREATE TABLE BirthCertificates (
+           CertificateID INT PRIMARY KEY AUTO_INCREMENT,
+           CitizenID INT,
+           CertificateNumber VARCHAR(20) UNIQUE NOT NULL,
+           DateOfIssue DATE NOT NULL,
+           PlaceOfBirth VARCHAR(255) NOT NULL,
+           IssuedBy VARCHAR(255) NOT NULL,
+           FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID) );
       
-      -- Appointments Table
-      CREATE TABLE Appointments (
-          AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
-          CitizenID INT NOT NULL,
-          ServiceID INT NOT NULL,
-          AppointmentDate DATE,
-          AppointmentTime TIME,
-          Status VARCHAR(50),
-          FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID),
-          FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID)
-      );
+      -- MarriageCertificates Table
+      CREATE TABLE MarriageCertificates (
+        CertificateID INT PRIMARY KEY AUTO_INCREMENT,
+        CitizenID1 INT,
+        CitizenID2 INT,
+        CertificateNumber VARCHAR(20) UNIQUE NOT NULL,
+        DateOfMarriage DATE NOT NULL,
+        PlaceOfMarriage VARCHAR(255) NOT NULL,
+        FOREIGN KEY (CitizenID1) REFERENCES Citizens(CitizenID),
+        FOREIGN KEY (CitizenID2) REFERENCES Citizens(CitizenID) );
       
       ```
