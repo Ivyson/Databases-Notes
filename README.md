@@ -70,7 +70,11 @@ This README File is used for creating useful notes that may be utilised for Data
   1. Creating A database flow goes as following:
      ```SQL
      --Create a database with name 223146145_Msimanga_Home_Affairs
+     --First Check the names of databases Available to avoid duplication
+     SHOW DATABASES;
      CREATE DATABASE 223146145_Msimanga_Home_Affairs;
+     --if name already exists, delete the old database
+     -- DROP DATABASE 223146145_Msimanga_Home_Affairs;
      USE 223146145_Msimanga_Home_Affairs; -- This ensures that we are using the recently created database with name 'Task1'
      -- Citizens Table
       CREATE TABLE Citizens (
@@ -126,3 +130,63 @@ This README File is used for creating useful notes that may be utilised for Data
         FOREIGN KEY (CitizenID2) REFERENCES Citizens(CitizenID) );
       
       ```
+2. Display the tables,
+   ```SQL
+   SHOW TABLES;
+   ```
+3. Describe the Tables
+   ```SQL
+   DESC Table1
+   ```
+4. Show the primary and foreign keys
+   ```SQL
+   -- This will create a table with headings Column_name, Table_Name etc... under those columns will be the name of the table, column name of the foreign keys and the primary keys
+   SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+   WHERE TABLE_SCHEMA = 'Msimanga_223146145_home_affairs'
+   AND (CONSTRAINT_NAME = 'PRIMARY' OR REFERENCED_TABLE_NAME IS NOT NULL);
+   ```
+
+5. Populating the data to the tables
+   ```SQL
+   -- Populating Citizens Table
+   INSERT INTO Citizens (IDNumber, FirstName, LastName, DateOfBirth, Nationality) VALUES
+   ('9001015009082', 'Alice', 'Smith', '1990-01-01', 'South African'),
+   ('8505205010087', 'Bob', 'Johnson', '1985-05-20', 'American'),
+   ('9810255011089', 'Carol', 'Williams', '1998-10-25', 'British'),
+   ('7601025012085', 'David', 'Brown', '1976-01-02', 'Canadian'),
+   ('0203155013081', 'Eve', 'Jones', '2002-03-15', 'Australian');
+   
+   -- Populating Passports Table
+   INSERT INTO Passports (CitizenID, PassportNumber, DateOfIssue, DateOfExpiry, PlaceOfIssue) VALUES
+   (1, 'PA123456', '2020-02-10', '2030-02-09', 'Pretoria'),
+   (2, 'PB789012', '2018-07-15', '2028-07-14', 'Cape Town'),
+   (3, 'PC345678', '2022-11-01', '2032-10-31', 'Durban'),
+   (4, 'PD901234', '2015-05-01', '2025-04-30', 'Johannesburg'),
+   (5, 'PE567890', '2023-08-20', '2033-08-19', 'Bloemfontein');
+   
+   -- Populating Visas Table
+   INSERT INTO Visas (PassportID, VisaType, IssueDate, ExpiryDate, Purpose) VALUES
+   (1, 'Tourist', '2024-01-15', '2024-04-15', 'Vacation'),
+   (2, 'Student', '2023-09-01', '2025-08-31', 'Study'),
+   (3, 'Business', '2024-02-20', '2024-05-20', 'Conference'),
+   (4, 'Work', '2022-06-10', '2024-06-09', 'Employment'),
+   (5, 'Transit', '2024-03-01', '2024-03-15', 'Layover');
+   
+   -- Populating MarriageCertificates Table
+   INSERT INTO MarriageCertificates (CitizenID1, CitizenID2, CertificateNumber, DateOfMarriage, PlaceOfMarriage)
+   VALUES (1, 2, 'MC12345678901234567890', '2010-06-20', 'Cape Town City Hall'),
+          (3, 4, 'MC98765432109876543210', '2005-12-12', 'Pretoria Gardens'),
+          (5, 1, 'MC11223344556677889900', '2022-08-08', 'Bloemfontein Church'),
+          (2, 3, 'MC55667788990011223344', '2018-03-15', 'Johannesburg Hotel'),
+          (4, 5, 'MC99887766554433221100', '2000-01-01', 'Durban Beach');
+
+   
+   -- Populating BirthCertificates Table
+   INSERT INTO BirthCertificates
+      (CitizenID, CertificateNumber, DateOfIssue, PlaceOfBirth, IssuedBy) VALUES (1, 'BC-19900105-001', '1990-01-05', 'Cape Town Hospital', 'Cape Town Home Affairs'),
+      (2, 'BC-19850520-002', '1985-05-20', 'Johannesburg Clinic', 'Johannesburg Home Affairs'),
+      (3, 'BC-19981025-003', '1998-10-25', 'Pretoria Maternity Ward', 'Pretoria Home Affairs'),
+      (4, 'BC-19760102-004', '1976-01-02', 'Durban Medical Centre', 'Durban Home Affairs'),
+      (5, 'BC-20020315-005', '2002-03-15', 'Bloemfontein Birth Unit', 'Bloemfontein Home Affairs');
+   ```
+6. 
