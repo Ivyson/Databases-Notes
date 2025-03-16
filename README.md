@@ -1,10 +1,10 @@
 # Databases-Notes
 This README File is used for creating useful notes that may be utilised for Database Test 1. 
 - Main Focus should be placed on the CRUD of database:
-    - Create - Being Able To create Databases
-    - Read - Querying Information from a database
-    - Updating - Update Information on a database
-    - Delete - Being able to remove data from the database, remove the database itself. Remove data from the tables within the database's tables
+1. Create - Being Able To create Databases
+2. Read - Querying Information from a database
+3. Updating - Update Information on a database
+4. Delete - Being able to remove data from the database, remove the database itself. Remove data from the tables within the database's tables
     - For Safety reasons, Know the difference between DDL & DDM
       1. Database Definition Language -- Defining the database, creation, Alteration & Updating a database
          i. Example 1
