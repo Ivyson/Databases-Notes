@@ -6,7 +6,8 @@ This README File is used for creating useful notes that may be utilised for Data
 3. Updating - Update Information on a database
 4. Delete - Being able to remove data from the database, remove the database itself. Remove data from the tables within the database's tables
 ## Difference Between DDL & DML
-1. Database Definition Language -- Defining the database, creation, Alteration & Updating a database
+1. ###Database Definition Language
+   - Defining the database, creation, Alteration & Updating a database
    1. Example 1   
       ```SQL
       CREATE DATABASE Example_Database;
@@ -37,29 +38,30 @@ This README File is used for creating useful notes that may be utilised for Data
       ```
       - The above mentioned syntax is for Deleting the table and database itself.
 
-    1. Database Management Language -- This is the syntax used to manage the database,This Lannguage is Data focused, the data stored in the table. this include the following examples:
-         i. Example 1 (Insertion) 
-          ```SQL
-          INSERT INTO Example_Table(Index_ID, Name, Surname, Email)
-          VALUES(1, "Samukelo", 'Gift', 'SamukeloGift@domain.com'),
-          (2, "Gifty", "Sam", "GiftySam@cput.ac.za");
-          ```
-          - The above Mentioned command is responsible for populating data within an existing table.
+### Database Management Language 
+- This is the syntax used to manage the database,This Lannguage is Data focused, the data stored in the table. this include the following examples:
+  1. Example 1 (Insertion) 
+     ```SQL
+     INSERT INTO Example_Table(Index_ID, Name, Surname, Email)
+     VALUES(1, "Samukelo", 'Gift', 'SamukeloGift@domain.com'),
+     (2, "Gifty", "Sam", "GiftySam@cput.ac.za");
+     ```
+     - The above Mentioned command is responsible for populating data within an existing table.
 
-       ii. Example 2 (Retrieval)
-        ```SQL
-        SELECT * FROM Example_Table;
-        SELECT Name FROM Example_Table;
-        SELECT Name, Surname, Email FROM Example_Table;
-        ```
-       iii. Example 3 (Updating)
-       ```SQL
-       UPDATE Example_Table
-       SET Name = 'Samson'
-       WHERE Name = 'Samukelo';
-       ```
-       iv. Example 4 (DELETION)
-       ```SQL
-       DELETE FROM Example_Table WHERE Name = 'Samson';
-       ```
+  2. Example 2 (Retrieval)
+     ```SQL
+     SELECT * FROM Example_Table;
+     SELECT Name FROM Example_Table;
+     SELECT Name, Surname, Email FROM Example_Table;
+     ```
+  3. Example 3 (Updating)
+     ```SQL
+     UPDATE Example_Table
+     SET Name = 'Samson'
+     WHERE Name = 'Samukelo';
+     ```
+  4. Example 4 (DELETION)
+     ```SQL
+     DELETE FROM Example_Table WHERE Name = 'Samson';
+     ```
        
