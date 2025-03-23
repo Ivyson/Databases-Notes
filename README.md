@@ -1,6 +1,6 @@
 # Databases-Notes
 This README File is used for creating useful notes that may be utilised for Database Test 1. 
-- Main Focus should be placed on the CRUD of database:
+- Main Focus should be placed on the CRUD function of databases:
 1. Create - Being Able To create Databases
 2. Read - Querying Information from a database
 3. Updating - Update Information on a database
